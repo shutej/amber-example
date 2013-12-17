@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
 
 	var library_home = "bower_components/"
-	  , amber_home = library_home + "amber";
+	    , amber_home = library_home + "amber";
 
-	grunt.loadNpmTasks("grunt-contrib-requirejs");
+	grunt.loadNpmTasks("grunt-requirejs");
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					paths: {
+            "amber": amber_home + "/support",
             "amber_vm": amber_home + "/support",
             'amber_lib': library_home,
             "amber_core": amber_home + "/js",
@@ -18,10 +19,14 @@ module.exports = function(grunt) {
             "jquery": library_home + "jquery/jquery.min"
 					},
 					name: "deploy",
+					almond: true,
+					wrap: true,
 					optimize: "uglify2",
 					out: "deploy.min.js"
 				}
 			}
 		}
 	});
+
+	grunt.registerTask("default", ["requirejs"]);
 };
