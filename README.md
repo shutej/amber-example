@@ -6,8 +6,15 @@ An example that pulls in Amber through Bower and compiles it with r.js.
 Installation
 ------------
 
+Assuming you earlier did
+
+    $ sudo npm install -g bower
+
+execute
+
     $ npm install
     $ bower install
+
 
 Hacking
 -------
